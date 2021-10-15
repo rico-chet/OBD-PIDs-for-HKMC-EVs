@@ -25,7 +25,7 @@
 000_Minimum Cell Voltage,Cell V min,0x220101,z/50,2.80,4.20,V,7E4
 000_Minimum Cell Voltage No.,Cell V min No.,0x220101,aa,0,98,,7E4
 000_Operating Time,OpTime,0x220101,((au<24)+(av<16)+(aw<8)+ax)/3600,0,1000000,hours,7E4
-000_State of Charge BMS,SOC BMS,0x220101,e/2,0,100,%,7E4
-000_State of Charge Display,SOC Display,0x220105,af/2,0,100,%,7E4
-000_State of Health,SOH,0x220105,((z<8)+aa)/10,0,100,%,7E4
+000_State of Charge BMS,SoC BMS,0x220101,e/2,0,100,%,7E4
+000_State of Charge Display,SoC Display,0x220105,af/2,0,100,%,7E4
+000_State of Health,SoH,0x220105,((z<8)+aa)/10,0,100,%,7E4
 
