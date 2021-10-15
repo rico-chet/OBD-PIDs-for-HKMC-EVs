@@ -19,7 +19,7 @@
 000_Cumulative Energy Discharged,CED,0x220101,((aq<24)+(ar<16)+(as<8)+at)/10,0,1000000,kWh,7E4
 000_HV_Charging,Charging,0x220101,val{000_BMS Main Relay}-val{000_BMS Ignition},0,1,,7E4
 000_Inverter Capacitor Voltage,BMS Capacitor,0x220101,((az<8)+ba),0,500,V,7E4
-000_Isolation Resistance,Surge Resistor,0x220101,((bf<8)+bg),0,1000,kOhm,7E4
+000_Isolation Resistance,Surge Resistor,0x220101,((bf<8)+bg),0,1000,kΩ,7E4
 000_Maximum Cell Voltage,Max Cell V,0x220101,x/50,2.80,4.20,V,7E4
 000_Maximum Cell Voltage No.,Max Cell V  No.,0x220101,y,0,98,,7E4
 000_Minimum Cell Voltage,Min Cell V,0x220101,z/50,2.80,4.20,V,7E4
