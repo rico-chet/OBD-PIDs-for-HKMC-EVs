@@ -36,4 +36,6 @@
 000_State of Charge BMS,SOC BMS,0x220101,e/2,0,100,%,7E4
 000_State of Charge Display,SOC Display,0x220105,af/2,0,100,%,7E4
 000_State of Health,SOH,0x220105,((z<8)+aa)/10,0,100,%,7E4
+00X_Cooling Water Temp,Water Temp,0x220106,Signed(e),-40,80,°C,7E4
+00X_Battery Management System Mode,BMS Mode,0x220106,o,0,255,,7E4
 
