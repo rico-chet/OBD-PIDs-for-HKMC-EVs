@@ -4,6 +4,11 @@
 000_Battery Cell Voltage Deviation,V Diff,0x220105,u/50,0,0.5,V,7E4
 000_Battery Current,Batt Current,0x220101,((Signed(K)*256)+L)/10,-430,430,A,7E4
 000_Battery DC Voltage,Batt Volts,0x220101,((m<8)+n)/10,268.8,403.2,V,7E4
+00X_Battery Fan Feedback,Batt Fan SPD,0x220101,ac,0,120,Hz,7E4
+00X_Battery Fan Status,Batt Fan MOD,0x220101,ab,0,9,,7E4
+00X_Battery Heater 1 Temperature,Heater Temp1,0x220105,Signed(X),0,30,°C,7E4
+00X_Battery Heater 2 Temperature,Heater Temp2,0x220105,Signed(Y),0,30,°C,7E4
+00X_Battery Inlet Temperature,Batt InletT,0x220101,Signed(W),-40,80,°C,7E4
 000_Battery Max Temperature,Batt T max,0x220101,Signed(O),-40,80,°C,7E4
 000_Battery Min Temperature,Batt T min,0x220101,Signed(P),-40,80,°C,7E4
 000_Battery Module 01 Temperature,Batt Temp01,0x220101,Signed(Q),-40,80,°C,7E4
@@ -23,10 +28,14 @@
 000_Isolation Resistance,Surge Resistor,0x220101,((bf<8)+bg),0,1000,kΩ,7E4
 000_Maximum Cell Voltage,Cell V max,0x220101,x/50,2.80,4.20,V,7E4
 000_Maximum Cell Voltage No.,Cell V max No.,0x220101,y,1,98,,7E4
+00X_Maximum Deterioration Cell No.,Max Det Cell No.,0x220105,ab,1,98,,7E4
 000_Minimum Cell Voltage,Cell V min,0x220101,z/50,2.80,4.20,V,7E4
 000_Minimum Cell Voltage No.,Cell V min No.,0x220101,aa,1,98,,7E4
+00X_Minimum Deterioration,Min Det,0x220105,((ac<8)+ad)/10,0,100,%,7E4
+00X_Minimum Deterioration Cell No.,Min Det Cell No.,0x220105,ae,1,98,,7E4
 000_Operating Time,OpTime,0x220101,((au<24)+(av<16)+(aw<8)+ax)/3600,0,1000000,hours,7E4
 000_State of Charge BMS,SoC BMS,0x220101,e/2,0,100,%,7E4
 000_State of Charge Display,SoC Display,0x220105,af/2,0,100,%,7E4
 000_State of Health,SoH,0x220105,((z<8)+aa)/10,0,100,%,7E4
-
+00X_Cooling Water Temp,Water Temp,0x220106,Signed(e),-40,80,°C,7E4
+00X_Battery Management System Mode,BMS Mode,0x220106,o,0,255,,7E4
