@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# From
+# https://docs.google.com/spreadsheets/d/1eT2R8hmsD1hC__9LtnkZ3eDjLcdib9JR-3Myc97jy8M.
+declare -A pid_ranges
+pid_ranges["22 01 01"]="10 {21..28}"
+pid_ranges["22 01 02"]="10 {21..25}"
+pid_ranges["22 01 03"]="10 {21..25}"
+pid_ranges["22 01 04"]="10 {21..25}"
+pid_ranges["22 01 05"]="10 {21..26}"
+pid_ranges["22 01 06"]="10 {21..25}"
+
+# Torque Pro coded byte addresses: a, b, ..., z, aa, ab, ...,az, ba, ..., bz
+mapfile -d' ' -t byte_codes < <(eval "echo {,a,b}{a..z}")
+
+# Sort the keys for a nicer output.
+mapfile -t pid_ranges_keys_sorted < <(
+	{
+		for pid_range in "${!pid_ranges[@]}"
+		do
+			echo "${pid_range}"
+		done
+	} \
+	| sort
+)
+
+for address_range in "${pid_ranges_keys_sorted[@]}"
+do
+	hex_address="$(
+		echo "${address_range}" \
+		| awk '{ printf "%02d%02d%02d", $1, $2, $3 }'
+	)"
+
+	lines_coded="${pid_ranges["${address_range}"]}"
+	mapfile -d' ' -t lines < <(eval "echo ${lines_coded}")
+	nr_of_lines="${#lines[@]}"
+
+	nr_of_bytes_per_line=7
+	nr_of_header_bytes=4
+	nr_of_bytes=$((nr_of_lines * nr_of_bytes_per_line - nr_of_header_bytes))
+	for byte_nr in $(seq 0 $((nr_of_bytes - 1)))
+	do
+		byte_code=${byte_codes[${byte_nr}]}
+		printf "00R %s %s,%s %s,0x%s,%s,-1,256,,7E4\n" \
+			"${hex_address}" \
+			"${byte_code}" \
+			"${hex_address:4:2}" \
+			"${byte_code}" \
+			"${hex_address}" \
+			"${byte_code}" \
+			;
+	done
+done
