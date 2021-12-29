@@ -1,0 +1,22 @@
+00C_Battery Module 01 Temperature,Batt Temp 1,0x220101,Signed(Q),-40,80,°C,7E4
+00C_Battery Module 02 Temperature,Batt Temp 2,0x220101,Signed(R),-40,80,°C,7E4
+00C_Battery Module 03 Temperature,Batt Temp 3,0x220101,Signed(S),-40,80,°C,7E4
+00C_Battery Module 04 Temperature,Batt Temp 4,0x220101,Signed(T),-40,80,°C,7E4
+00C_Battery Minimal Temperature,Batt Temp min,0x220101,MIN(val{Batt Temp 1}:MIN(val{Batt Temp 2}:MIN(val{Batt Temp 3}:val{Batt Temp 4}))),-40,80,°C,7E4
+00C_Battery Maximal Temperature,Batt Temp max,0x220101,MAX(val{Batt Temp 1}:MAX(val{Batt Temp 2}:MAX(val{Batt Temp 3}:val{Batt Temp 4}))),-40,80,°C,7E4
+00C_State of Charge BMS,SoC BMS,0x220101,e/2,0,100,%,7E4
+
+00C_Temperature Level -3 Current,Temp L -3 I,0x220101,LOOKUP(val{SoC BMS}:0:0~71.5=60:72~86.5=35:87~92.5=30:93~100:5),0,210,A,7E4
+00C_Temperature Level -2 Current,Temp L -2 I,0x220101,LOOKUP(val{SoC BMS}:0:0~60.5=108:61~62.5=72:63~83.5=60:84~89.5=30:90~100:5),0,210,A,7E4
+00C_Temperature Level -1 Current,Temp L -1 I,0x220101,LOOKUP(val{SoC BMS}:0:0~56.5=145:57~70.5=108:71~84.5=60:85~92.5=35:93~100=5),0,210,A,7E4
+00C_Temperature Level 0 Current,Temp L 0 I,0x220101,LOOKUP(val{SoC BMS}:0:0~39.5=200:40~53.5=185:54~72.5=145:73~75.5=90:76~90.5=60:91~100:30),0,210,A,7E4
+00C_Temperature Level 1 Current,Temp L 1 I,0x220101,0,0,210,A,7E4
+00C_Temperature Level 2 Current,Temp L 2 I,0x220101,0,0,210,A,7E4
+00C_Temperature Level 3 Current,Temp L 3 I,0x220101,0,0,210,A,7E4
+
+00C_Temperature Level,Temp Lvl,0x220101,LOOKUP(val{Batt Temp min}:-10:-5~4=-3:5~14=-2:15~24=-1:25~80=LOOKUP(val{Batt Temp max}:10:25~34=0:35~44=1:45~54=2:55~64=3)),0,210,A,7E4
+
+00C_DC Charging Current Limit,DC I max,0x220101,LOOKUP(val{Temp Lvl}:0:-3=val{Temp L -3 I}:-2=val{Temp L -2 I}:-1=val{Temp L -1 I}:0=val{Temp L 0 I}:1=val{Temp L 1 I}:2=val{Temp L 2 I}:3=val{Temp L 3 I}),-3,3,A,7E4
+00C_Battery DC Voltage,Batt Volts,0x220101,((m<8)+n)/10,268.8,420,V,7E4
+
+00C_DC Charging Power Limit,DC P max,0x220101,val{DC I max}*val{Batt Volts}/1000,0,80,kW,7E4
