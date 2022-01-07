@@ -17,7 +17,7 @@
 
 00C_Temperature Level,Temp Lvl,0x220101,LOOKUP(val{00C_Battery Minimal Temperature}:-10:-5~-1=-4:0~4=-3:5~14=-2:15~24=-1:25~80=LOOKUP(val{00C_Battery Maximal Temperature}:10:25~34=0:35~44=1:45~54=2:55~64=3)),-4,4,,7E4
 
-00C_DC Charging Current Limit at Current Temperature,Imax curr DC,0x220101,LOOKUP(val{00C_Temperature Level}:0:-3=val{00C_Temperature Level -3 Current}:-2=val{00C_Temperature Level -2 Current}:-1=val{00C_Temperature Level -1 Current}:0=val{00C_Temperature Level 0 Current}:1=val{00C_Temperature Level 1 Current}:2=val{00C_Temperature Level 2 Current}:3=val{00C_Temperature Level 3 Current}),0,210,A,7E4
+00C_DC Charging Current Limit at Current Temperature,Imax curr DC,0x220101,LOOKUP(val{00C_Temperature Level}:0:-4=val{00C_Temperature Level -4 Current}:-3=val{00C_Temperature Level -3 Current}:-2=val{00C_Temperature Level -2 Current}:-1=val{00C_Temperature Level -1 Current}:0=val{00C_Temperature Level 0 Current}:1=val{00C_Temperature Level 1 Current}:2=val{00C_Temperature Level 2 Current}:3=val{00C_Temperature Level 3 Current}),0,210,A,7E4
 00C_Battery DC Voltage,Batt U,0x220101,((m<8)+n)/10,268.8,420,V,7E4
 
 00C_DC Charging Power Limit at Current Temperature,Pmax curr DC,0x220101,val{00C_DC Charging Current Limit at Current Temperature}*val{00C_Battery DC Voltage}/1000,0,80,kW,7E4
