@@ -7,10 +7,10 @@
 00C_State of Charge BMS,SoC BMS,0x220101,e/2,0,100,%,7E4
 
 00C_Temperature Level -4 Current,I Temp L-4,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~82=54.5:82.5~92=35.3:92.5~100=10),0,210,A,7E4
-00C_Temperature Level -3 Current,I Temp L-3,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~71.5=60:72~86.5=35:87~92.5=30:93~100=5),0,210,A,7E4
-00C_Temperature Level -2 Current,I Temp L-2,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~60.5=108:61~62.5=72:63~83.5=60:84~89.5=30:90~100=5),0,210,A,7E4
-00C_Temperature Level -1 Current,I Temp L-1,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~56.5=145:57~70.5=108:71~84.5=60:85~92.5=35:93~100=5),0,210,A,7E4
-00C_Temperature Level 0 Current,I Temp L0,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~39.5=200:40~53.5=185:54~72.5=145:73~75.5=90:76~90.5=60:91~100=30),0,210,A,7E4
+00C_Temperature Level -3 Current,I Temp L-3,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~82=60:82.5~86.5=35:87~92.5=30:93~100=5),0,210,A,7E4
+00C_Temperature Level -2 Current,I Temp L-2,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~60.5=108:61~62.5=72:63~83.5=60:84~93=35:93.5~100=5),0,210,A,7E4
+00C_Temperature Level -1 Current,I Temp L-1,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~56.5=145:57~70.5=108:71~84.5=60:85~93=35:93.5~100=19),0,210,A,7E4
+00C_Temperature Level 0 Current,I Temp L0,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~39.5=200:40~53.5=185:54~72.5=145:73~75.5=90:76~90=60:90.5~100=35),0,210,A,7E4
 00C_Temperature Level 1 Current,I Temp L+1,0x220101,0,0,210,A,7E4
 00C_Temperature Level 2 Current,I Temp L+2,0x220101,0,0,210,A,7E4
 00C_Temperature Level 3 Current,I Temp L+3,0x220101,0,0,210,A,7E4
