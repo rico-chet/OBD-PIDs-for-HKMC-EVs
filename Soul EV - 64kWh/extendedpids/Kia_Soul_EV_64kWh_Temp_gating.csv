@@ -6,6 +6,7 @@
 00C_Battery Maximal Temperature,Batt Tmax,0x220101,MAX(val{00C_Battery Module 1 Temperature}:MAX(val{00C_Battery Module 2 Temperature}:MAX(val{00C_Battery Module 3 Temperature}:val{00C_Battery Module 2 Temperature}))),-40,80,°C,7E4
 00C_State of Charge BMS,SoC BMS,0x220101,e/2,0,100,%,7E4
 
+00C_Temperature Level -4 Current,I Temp L-4,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~82=54.5:82.5~92=35.3:92.5~100=10),0,210,A,7E4
 00C_Temperature Level -3 Current,I Temp L-3,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~71.5=60:72~86.5=35:87~92.5=30:93~100=5),0,210,A,7E4
 00C_Temperature Level -2 Current,I Temp L-2,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~60.5=108:61~62.5=72:63~83.5=60:84~89.5=30:90~100=5),0,210,A,7E4
 00C_Temperature Level -1 Current,I Temp L-1,0x220101,LOOKUP(val{00C_State of Charge BMS}:0:0~56.5=145:57~70.5=108:71~84.5=60:85~92.5=35:93~100=5),0,210,A,7E4
@@ -14,7 +15,7 @@
 00C_Temperature Level 2 Current,I Temp L+2,0x220101,0,0,210,A,7E4
 00C_Temperature Level 3 Current,I Temp L+3,0x220101,0,0,210,A,7E4
 
-00C_Temperature Level,Temp Lvl,0x220101,LOOKUP(val{00C_Battery Minimal Temperature}:-10:-5~4=-3:5~14=-2:15~24=-1:25~80=LOOKUP(val{00C_Battery Maximal Temperature}:10:25~34=0:35~44=1:45~54=2:55~64=3)),-4,4,,7E4
+00C_Temperature Level,Temp Lvl,0x220101,LOOKUP(val{00C_Battery Minimal Temperature}:-10:-5~-1=-4:0~4=-3:5~14=-2:15~24=-1:25~80=LOOKUP(val{00C_Battery Maximal Temperature}:10:25~34=0:35~44=1:45~54=2:55~64=3)),-4,4,,7E4
 
 00C_DC Charging Current Limit at Current Temperature,Imax curr DC,0x220101,LOOKUP(val{00C_Temperature Level}:0:-3=val{00C_Temperature Level -3 Current}:-2=val{00C_Temperature Level -2 Current}:-1=val{00C_Temperature Level -1 Current}:0=val{00C_Temperature Level 0 Current}:1=val{00C_Temperature Level 1 Current}:2=val{00C_Temperature Level 2 Current}:3=val{00C_Temperature Level 3 Current}),0,210,A,7E4
 00C_Battery DC Voltage,Batt U,0x220101,((m<8)+n)/10,268.8,420,V,7E4
